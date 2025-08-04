@@ -25,12 +25,18 @@ def clean_text(text):
 
     return "\n".join(cleaned_lines).strip()
 
-def is_valid_table(table):
-    """Checks if the table has enough structure to be meaningful."""
+def is_valid_table(table, char_thresh=30):
+    """Checks if the table has enough structure and content to be meaningful."""
     if not table or len(table) < 2:
         return False
+
     col_counts = [len(row) for row in table if row]
-    return len(col_counts) >= 2 and min(col_counts) >= 2
+    if len(col_counts) < 2 or min(col_counts) < 2:
+        return False
+
+    total_chars = sum(len(str(cell)) for row in table for cell in row if cell)
+    return total_chars >= char_thresh
+
 
 def clean_table(table):
     """Cleans each cell in the table for readability."""
