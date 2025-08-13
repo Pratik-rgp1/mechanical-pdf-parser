@@ -13,8 +13,9 @@ class PDFExtractor:
         if not text:
             return ""
         text = text.replace("\u2013", "-").replace("\u2014", "-")
-        text = re.sub(r"[^\x20-\x7E\n\t]", "", text)
-        text = re.sub(r"(\d{2})(?=\d{2}\b)", r"\1–", text)
+        # text = re.sub(r"[^\x20-\x7E\n\t]", "", text)
+        # text = re.sub(r"(\d{2})(?=\d{2}\b)", r"\1–", text)
+        # text = re.sub(r"(\d+)-(\d+)", r"\1\2", text)
         lines = [
             line.strip() for line in text.splitlines()
             if not re.search(r"514-1E|A%PXOMPB|CCaammFFoollllo|@\$%", line)
