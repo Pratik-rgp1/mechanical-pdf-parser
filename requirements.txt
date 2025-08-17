@@ -1,0 +1,10 @@
+pdfplumber
+PyMuPDF
+Pillow
+sentence_transformers
+pdf2image
+tqdm
+opencv-python
+numpy
+docling
+pycryptodome
