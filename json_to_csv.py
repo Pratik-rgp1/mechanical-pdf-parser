@@ -20,7 +20,7 @@ def convert_json_to_csv(json_path):
         with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
     except Exception as e:
-        print(f"❌ Failed to load JSON: {json_path} — {e}")
+        print(f" Failed to load JSON: {json_path} — {e}")
         return
 
     tables = data.get("tables", [])
@@ -31,14 +31,14 @@ def convert_json_to_csv(json_path):
     for idx, table in enumerate(tables, start=1):
         output_file = os.path.join(OUTPUT_DIR, f"{base_name}_table_{idx}.csv")
         write_csv(output_file, table)
-        print(f"✅ Saved: {output_file} — {len(table)} rows")
+        print(f" Saved: {output_file} — {len(table)} rows")
 
 def process_all_json_files():
     """Convert all JSON files in the input directory."""
     json_files = sorted(f for f in os.listdir(INPUT_DIR) if f.endswith(".json"))
 
     if not json_files:
-        print("❌ No JSON files found.")
+        print(" No JSON files found.")
         return
 
     for json_file in json_files:
@@ -48,4 +48,4 @@ def process_all_json_files():
 if __name__ == "__main__":
     print(f" Starting conversion from '{INPUT_DIR}' to '{OUTPUT_DIR}' ...")
     process_all_json_files()
-    print("✅ Conversion complete.")
+    print(" Conversion complete.")
