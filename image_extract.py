@@ -200,7 +200,7 @@ def save_diagram_from_pdf(pdf_path, output_dir, dpi=300, output_json_dir="output
             image_name = f"page{page_number}_diagram{idx+1}.png"
             out_path = os.path.join(output_dir, image_name)
             img.save(out_path)
-            print(f"✅ Saved: {out_path}")
+            print(f" Saved: {out_path}")
 
             metadata = {
                 "file": image_name,
