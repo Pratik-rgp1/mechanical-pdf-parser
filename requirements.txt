@@ -8,3 +8,7 @@ opencv-python
 numpy
 docling
 pycryptodome
+pdfplumber
+PyMuPDF
+Pillow
+
