@@ -13,8 +13,8 @@ def clean_text(text):
         return ""
 
     # Replace non-standard dashes and strip unwanted characters
-    text = text.replace("\u2013", "-").replace("\u2014", "-")
-    text = re.sub(r"[^\x20-\x7E\n\t]", "", text)
+    # text = text.replace("\u2013", "-").replace("\u2014", "-")
+    # text = re.sub(r"[^\x20-\x7E\n\t]", "", text)
     text = re.sub(r"(\d{2})(?=\d{2}\b)", r"\1–", text)
 
     # Filter out garbage lines
@@ -78,3 +78,4 @@ def extract_with_pdfplumber(pdf_path, output_dir):
 
 if __name__ == "__main__":
     extract_with_pdfplumber(PDF_PATH, OUTPUT_DIR)
+
